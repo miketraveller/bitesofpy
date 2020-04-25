@@ -1,7 +1,7 @@
 from functools import wraps
 from time import time
 from typing import Deque, List, Set, Generator
-import numpy as np
+
 
 
 
@@ -65,9 +65,9 @@ def list_inserts(n: int) -> List[int]:
 
 
 @timing
-def list_inserts_fast(n: int) -> List[int]:
-    lst = np.arange(n-1, -1, -1)
-    return lst
+def list_inserts_fast(n: int) -> Deque[int]:
+    lst = Deque(range(n))
+    return reversed(lst)
 
 
 @timing
