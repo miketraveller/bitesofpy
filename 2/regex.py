@@ -20,6 +20,7 @@ def extract_course_times(course=COURSE):
        Return this list.
     """
     return re.findall('[0-9]+:[0-9]+', course)
+   #  return re.findall(r'\d+:\d+', course)
 
 
 def get_all_hashtags_and_links(tweet=TWEET):
@@ -38,6 +39,8 @@ def get_all_hashtags_and_links(tweet=TWEET):
     b = [element for tupl in a for element in tupl]
     return [ it for it in b if it]
 
+   #  return re.findall(r'((?:#|http)\S+)', tweet)
+
 def match_first_paragraph(html=HTML):
     """Extract the first paragraph of the passed in
        html, so for HTML above this would be:
@@ -46,3 +49,4 @@ def match_first_paragraph(html=HTML):
     """
 
     return re.findall('p>(.*?)<', html)[0]
+   #  return re.sub(r'^<p>(.*?)</p>.*$', r'\1', html)
